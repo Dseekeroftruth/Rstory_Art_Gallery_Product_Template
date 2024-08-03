@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{Page_Title}}</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: #ff6347;
+            padding: 20px;
+            margin: 0;
+            font-size: 3em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery-item {
+            margin: 15px;
+            background-color: #444;
+            border: 2px solid #555;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-item p {
+            padding: 15px;
+            margin: 0;
+            background-color: #222;
+            border-top: 1px solid #333;
+        }
+        .gallery-item p.title {
+            font-weight: bold;
+            color: #ff6347;
+            font-size: 1.2em;
+        }
+        .gallery-item p.description {
+            color: #ddd;
+            font-size: 1em;
+            line-height: 1.4;
+            min-height: 60px; /* Adjust this value to fit your design */
+        }
+        @media (max-width: 600px) {
+            .gallery-item {
+                width: 90%;
+            }
+        }
+        @media (min-width: 600px) {
+            .gallery-item {
+                width: 45%;
+            }
+        }
+        @media (min-width: 1000px) {
+            .gallery-item {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>{{Gallery_Title}}</h1>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="{{Image1_PATH}}" alt="{{Image1_Alt}}">
+            <p class="title">{{Image1_Title}}</p>
+            <p class="description">{{Image1_Description}}</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{Image2_PATH}}" alt="{{Image2_Alt}}">
+            <p class="title">{{Image2_Title}}</p>
+            <p class="description">{{Image2_Description}}</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{Image3_PATH}}" alt="{{Image3_Alt}}">
+            <p class="title">{{Image3_Title}}</p>
+            <p class="description">{{Image3_Description}}</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{Image4_PATH}}" alt="{{Image4_Alt}}">
+            <p class="title">{{Image4_Title}}</p>
+            <p class="description">{{Image4_Description}}</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{Image5_PATH}}" alt="{{Image5_Alt}}">
+            <p class="title">{{Image5_Title}}</p>
+            <p class="description">{{Image5_Description}}</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{Image6_PATH}}" alt="{{Image6_Alt}}">
+            <p class="title">{{Image6_Title}}</p>
+            <p class="description">{{Image6_Description}}</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                alert('{{Alert_Message}}');
+            });
+        });
+    </script>
+</body>
+</html>
