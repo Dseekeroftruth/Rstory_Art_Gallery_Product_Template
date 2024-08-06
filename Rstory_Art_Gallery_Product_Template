@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{Page_Title}}</title>
+    <title>Well Do Ya?</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -36,6 +36,7 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 500px;
         }
         .gallery-item img {
             width: 100%;
@@ -81,48 +82,123 @@
                 width: 30%;
             }
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>{{Gallery_Title}}</h1>
+    <h1>Well Do Ya?</h1>
     <div class="gallery">
         <div class="gallery-item">
-            <img src="{{Image1_PATH}}" alt="{{Image1_Alt}}">
-            <p class="title">{{Image1_Title}}</p>
-            <p class="description">{{Image1_Description}}</p>
+            <img src="https://rstory.mypinata.cloud/ipfs/Qme8AmQNAQKh3bEDpKMhx18qp6k1yWqsJjvffQXLCKRMXu/Do_You_Do_Dobbs1.jpeg" alt="Artwork 1">
+            <p class="title">DABS?</p>
+            <p class="description"> A distinguished gentleman with a top hat and monocle does cannabis dabs in a whimsical, psychedelic scene, humorously asking, “Do you do Dobbs?”.</p>
         </div>
         <div class="gallery-item">
-            <img src="{{Image2_PATH}}" alt="{{Image2_Alt}}">
-            <p class="title">{{Image2_Title}}</p>
-            <p class="description">{{Image2_Description}}</p>
+            <img src="https://rstory.mypinata.cloud/ipfs/Qme8AmQNAQKh3bEDpKMhx18qp6k1yWqsJjvffQXLCKRMXu/Do_You_Do_Dobbs2.jpeg" alt="Artwork 2">
+            <p class="title">DOBBS?</p>
+            <p class="description"> A sophisticated man in a top hat and monocle humorously contrasts his highbrow appearance by doing cannabis dabs in a colorful, psychedelic scene, asking, “Do you do Dobbs?"</p>
         </div>
         <div class="gallery-item">
-            <img src="{{Image3_PATH}}" alt="{{Image3_Alt}}">
-            <p class="title">{{Image3_Title}}</p>
-            <p class="description">{{Image3_Description}}</p>
+            <img src="https://rstory.mypinata.cloud/ipfs/Qme8AmQNAQKh3bEDpKMhx18qp6k1yWqsJjvffQXLCKRMXu/Do_You_Do_Dobbs3.jpeg" alt="Artwork 3">
+            <p class="title">DO YOU?</p>
+            <p class="description"> A gentleman in a top hat and monocle indulges in cannabis dabs in a vibrant, psychedelic scene, humorously asking, “Do you do Dobbs?”</p>
         </div>
         <div class="gallery-item">
-            <img src="{{Image4_PATH}}" alt="{{Image4_Alt}}">
-            <p class="title">{{Image4_Title}}</p>
-            <p class="description">{{Image4_Description}}</p>
+            <img src="https://rstory.mypinata.cloud/ipfs/Qme8AmQNAQKh3bEDpKMhx18qp6k1yWqsJjvffQXLCKRMXu/Do_You_Do_Dobbs4.jpeg" alt="Artwork 4">
+            <p class="title">DO?</p>
+            <p class="description"> A sophisticated man with a top hat and monocle does cannabis dabs in a colorful, psychedelic scene, humorously asking, “Do you do Dobbs?”</p>
         </div>
         <div class="gallery-item">
-            <img src="{{Image5_PATH}}" alt="{{Image5_Alt}}">
-            <p class="title">{{Image5_Title}}</p>
-            <p class="description">{{Image5_Description}}</p>
+            <img src="https://rstory.mypinata.cloud/ipfs/Qme8AmQNAQKh3bEDpKMhx18qp6k1yWqsJjvffQXLCKRMXu/Do_You_Do_Dobbs5.jpeg" alt="Artwork 5">
+            <p class="title">YOU?</p>
+            <p class="description"> A gentleman with a top hat and monocle engages in cannabis dabs in a vibrant, psychedelic scene, humorously asking, “Do you do Dobbs?”</p>
         </div>
         <div class="gallery-item">
-            <img src="{{Image6_PATH}}" alt="{{Image6_Alt}}">
-            <p class="title">{{Image6_Title}}</p>
-            <p class="description">{{Image6_Description}}</p>
+            <img src="https://rstory.mypinata.cloud/ipfs/Qme8AmQNAQKh3bEDpKMhx18qp6k1yWqsJjvffQXLCKRMXu/Do_You_Do_Dobbs6.jpeg" alt="Artwork 6">
+            <p class="title">DO YOU DO DOBBS?</p>
+            <p class="description"> A distinguished gentleman in a top hat and monocle does cannabis dabs in a whimsical, psychedelic scene, humorously asking, “Do you do Dobbs?”</p>
         </div>
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="Full-size image">
+        </div>
+    </div>
+
     <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the modal image element
+        var modalImg = document.getElementById('modal-img');
+
+        // Get the close button element
+        var closeBtn = document.getElementsByClassName('close')[0];
+
+        // Loop through each gallery item
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
-                alert('{{Alert_Message}}');
+                // Get the source of the clicked image
+                var imgSrc = item.querySelector('img').src;
+
+                // Set the source of the modal image
+                modalImg.src = imgSrc;
+
+                // Display the modal
+                modal.style.display = 'block';
             });
         });
+
+        // Close the modal when the close button is clicked
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
+
